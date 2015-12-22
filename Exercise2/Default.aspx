@@ -11,8 +11,13 @@
         <div>
             <asp:Button ID="ButtonLoadCategories" runat="server" OnClick="ButtonLoadCategories_OnClick" Text="Load Product Categories"/>
             <asp:DropDownList ID="DropDownCategories" runat="server" AutoPostBack="True"/>
-            <asp:Label ID="LabelException" runat="server" Text="" Visible="False"></asp:Label>
+            <asp:Label ID="LabelInfo" runat="server" Text="" Visible="False"></asp:Label>
         </div>
+        <div>
+            <asp:TextBox ID="TextBoxCategoryName" runat="server"></asp:TextBox>
+            <asp:Button ID="ButtonAddCategory" runat="server" OnClick="ButtonAddCategory_OnClick" Text="Add Product Category"/>
+        </div>
+
     </form>
 </body>
 </html>

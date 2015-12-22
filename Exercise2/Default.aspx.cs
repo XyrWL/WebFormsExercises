@@ -12,7 +12,7 @@ namespace Exercise2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void ButtonLoadCategories_OnClick(object sender, EventArgs e)
@@ -37,11 +37,12 @@ namespace Exercise2
                     item.Value = sqlDataReader["ProductCategoryID"].ToString();
                     DropDownCategories.Items.Add(item);
                 }
+                LabelInfo.Visible = false;
             }
             catch (Exception ex)
             {
-                LabelException.Text = ex.Message;
-                LabelException.Visible = true;
+                LabelInfo.Text = ex.Message;
+                LabelInfo.Visible = true;
             }
             finally
             {
@@ -50,6 +51,34 @@ namespace Exercise2
                     sqlDataReader.Close();
                     sqlDataReader.Dispose();
                 }
+                sqlConnection.Close();
+                sqlConnection.Dispose();
+                sqlCommand.Dispose();
+            }
+        }
+
+        protected void ButtonAddCategory_OnClick(object sender, EventArgs e)
+        {
+            SqlConnection sqlConnection = new SqlConnection("Server=localhost; Database=AdventureWorks2012; Integrated Security=true");
+
+            string sqlInsert = $"INSERT INTO Production.ProductCategory (Name) VALUES ('{TextBoxCategoryName.Text}')";
+            SqlCommand sqlCommand = new SqlCommand(sqlInsert, sqlConnection);
+            try
+            {
+                sqlConnection.Open();
+                if (sqlCommand.ExecuteNonQuery() > 0)
+                {
+                    LabelInfo.Text = "New category added, press button to refresh list.";
+                    LabelInfo.Visible = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                LabelInfo.Text = ex.Message;
+                LabelInfo.Visible = true;
+            }
+            finally
+            {
                 sqlConnection.Close();
                 sqlConnection.Dispose();
                 sqlCommand.Dispose();
