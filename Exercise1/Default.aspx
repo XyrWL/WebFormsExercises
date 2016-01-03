@@ -9,7 +9,25 @@
 <body>
     <form id="form1" runat="server">
     <div>
-    
+         <div>
+            <asp:TextBox ID="TextBoxInput" runat="server"></asp:TextBox>
+            <asp:DropDownList ID="DropDownInputType" runat="server" AutoPostBack="True">
+                <asp:ListItem value="sek">SEK</asp:ListItem>
+                <asp:ListItem value="euro">Euro</asp:ListItem>
+                <asp:ListItem value="dollar">Dollar</asp:ListItem>
+                <asp:ListItem value="pound">Pound</asp:ListItem>
+            </asp:DropDownList>
+        </div>
+        <div>
+            <asp:TextBox ID="TextboxOutput" ReadOnly="true" runat="server"></asp:TextBox>
+            <asp:DropDownList ID="DropDownOutputType" runat="server" AutoPostBack="True">
+                <asp:ListItem value="sek">SEK</asp:ListItem>
+                <asp:ListItem value="euro">Euro</asp:ListItem>
+                <asp:ListItem value="dollar">Dollar</asp:ListItem>
+                <asp:ListItem value="pound">Pound</asp:ListItem>
+            </asp:DropDownList>
+        </div>
+        <asp:Button ID="ButtonConvert" runat="server" OnClick="ButtonConvert_OnClick" Text="Convert Currency"/>
     </div>
     </form>
 </body>
