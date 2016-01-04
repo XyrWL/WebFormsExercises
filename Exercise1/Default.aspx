@@ -11,7 +11,7 @@
     <div>
          <div>
             <asp:TextBox ID="TextBoxInput" runat="server"></asp:TextBox>
-            <asp:DropDownList ID="DropDownInputType" runat="server" AutoPostBack="True">
+            <asp:DropDownList ID="DropDownInputType" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ConvertInputToSEK_Event">
                 <asp:ListItem value="sek">SEK</asp:ListItem>
                 <asp:ListItem value="euro">Euro</asp:ListItem>
                 <asp:ListItem value="dollar">Dollar</asp:ListItem>
@@ -20,14 +20,14 @@
         </div>
         <div>
             <asp:TextBox ID="TextboxOutput" ReadOnly="true" runat="server"></asp:TextBox>
-            <asp:DropDownList ID="DropDownOutputType" runat="server" AutoPostBack="True">
+            <asp:DropDownList ID="DropDownOutputType" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ConvertInputToSEK_Event">
                 <asp:ListItem value="sek">SEK</asp:ListItem>
                 <asp:ListItem value="euro">Euro</asp:ListItem>
                 <asp:ListItem value="dollar">Dollar</asp:ListItem>
                 <asp:ListItem value="pound">Pound</asp:ListItem>
             </asp:DropDownList>
         </div>
-        <asp:Button ID="ButtonConvert" runat="server" OnClick="ButtonConvert_OnClick" Text="Convert Currency"/>
+        <asp:Button ID="ButtonConvert" runat="server" OnClick="ConvertInputToSEK_Event" Text="Convert Currency"/>
     </div>
     </form>
 </body>

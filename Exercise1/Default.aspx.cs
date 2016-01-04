@@ -18,7 +18,7 @@ namespace Exercise1
 
         }
 
-        protected void ButtonConvert_OnClick(object sender, EventArgs e)
+        protected void ConvertInputToSEK_Event(object sender, EventArgs e)
         {
             double input;
             if (double.TryParse(TextBoxInput.Text, out input))
